@@ -1,0 +1,14 @@
+一：运行
+修改host文件
+执行数据库脚本
+启动redis rabbitMQ
+启动项目：
+启动注册中心 localhost:8761
+启动配置中心 端口随机
+启动用户中心、通知中心、授权中心、文件服务、日志中心、后台管理、监控
+最后启动zuul网关
+访问后台管理界面
+　　　http://localhost:8080/api-b/login.html
+　　　用户名admin 密码admin
+　　　用户名superadmin 密码superadmin
+6.
