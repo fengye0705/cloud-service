@@ -11,4 +11,41 @@
 　　　http://localhost:8080/api-b/login.html
 　　　用户名admin 密码admin
 　　　用户名superadmin 密码superadmin
-6.
+
+二：模块学习记录
+注册中心 register-center
+
+配置中心 config-center
+　　　（1）spring.profiles.active来指定 配置文件的位置
+　　　（2）server.port = 0 生成随机端口号
+　　　（3）classpath:/configs/{profile} 其中profile由客户端指定使用版本
+
+
+网关 gateway-zuul
+　　　所有的请求都是从网关进来
+　　　（1）Filter:黑名单、URL（不需要登录，也能访问）
+　　　（2）统一的异常通知处理
+　　　（3）统一的登入登出、token管理
+4.日志依赖包 log-starter
+　　　（1）aop环绕通知，异步使用mq记录日志
+　　　（2）声明了一个LogMqClient，便于其它地方使用
+5.日志中心 log-center
+　　　（1）监听日记记录的队列
+　　　（2）提供保存日志的接口
+　　　（3）部分接口开发，部分需要使用OAuth2权限验证
+　　　（4）日志记录可以存在数据库或者ES中
+　　　（5）创建一个线程池，多线程异步执行[@EnableAsync]
+6.通知中心 notification-center
+　　　（1）使用阿里云发短信
+　　　（2）使用阿里云检验验证码
+　　　（3）验证码存在于redis中
+
+三：整体架构
+服务调用采用feign
+　　　指定服务、接口 
+日志记录
+　　　部分采用异步调用接口
+　　　部分采用消息队列
+　　　
+　　　
+　　　
